@@ -6,10 +6,12 @@ const {userRouter} = require("./routes/userRouter")
 const {bookingRouter} = require("./routes/bookingRouter")
 const {flightRouter} = require("./routes/flightRouter")
 const {auth} = require("./middleware/auth");
+const cors = require("cors")
 
 app.get("/",(req,res)=>{
     res.send("home")
 })
+app.use(cors());
 app.use(express.json());
 app.use("/user",userRouter);
 app.use(auth);
